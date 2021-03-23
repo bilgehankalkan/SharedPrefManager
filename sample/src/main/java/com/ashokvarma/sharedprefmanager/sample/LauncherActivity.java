@@ -6,14 +6,12 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.ashokvarma.sharedprefmanager.SharedPrefManager;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -75,12 +73,12 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPrefManager
-                        .launchSharedPrefManager(
-                                LauncherActivity.this
-                                , new ArrayList<>(Arrays.asList(new String[]{SP_PRI_APP, SP_PRI_USER_JSON, SP_PRI_LONG_DATA, SP_PRI_15_000_ENTRY, SP_PRI_NO_DATA}))
-                                , new ArrayList<>(Arrays.asList(new String[]{SP_WORLD_READ_USER, SP_WORLD_READ_DATABASE}))
-                                , new ArrayList<>(Arrays.asList(new String[]{SP_WORLD_WRITE_USER}))
-                        );
+                    .launchSharedPrefManager(
+                        LauncherActivity.this
+                        , new ArrayList<>(Arrays.asList(new String[]{SP_PRI_APP, SP_PRI_USER_JSON, SP_PRI_LONG_DATA, SP_PRI_15_000_ENTRY, SP_PRI_NO_DATA}))
+                        , new ArrayList<>(Arrays.asList(new String[]{SP_WORLD_READ_USER, SP_WORLD_READ_DATABASE}))
+                        , new ArrayList<>(Arrays.asList(new String[]{SP_WORLD_WRITE_USER}))
+                    );
             }
         });
 
@@ -88,12 +86,12 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPrefManager
-                        .launchSharedPrefManager(
-                                LauncherActivity.this
-                                , new ArrayList<>(Arrays.asList(new String[]{SP_PRI_APP, SP_PRI_USER_JSON, SP_PRI_LONG_DATA, SP_PRI_15_000_ENTRY, SP_PRI_NO_DATA}))
-                                , null
-                                , null
-                        );
+                    .launchSharedPrefManager(
+                        LauncherActivity.this
+                        , new ArrayList<>(Arrays.asList(new String[]{SP_PRI_APP, SP_PRI_USER_JSON, SP_PRI_LONG_DATA, SP_PRI_15_000_ENTRY, SP_PRI_NO_DATA}))
+                        , null
+                        , null
+                    );
             }
         });
     }
@@ -125,64 +123,64 @@ public class LauncherActivity extends AppCompatActivity {
 
     public void floodExtremes(SharedPreferences sharedPreferences) {
         sharedPreferences
-                .edit()
-                .putLong("long_max", Long.MAX_VALUE)
-                .putLong("long_min", Long.MIN_VALUE)
-                .putLong("long", 100L)
-                .putInt("int_max", Integer.MAX_VALUE)
-                .putInt("int_min", Integer.MIN_VALUE)
-                .putInt("int", 100)
-                .putFloat("float_max", Float.MAX_VALUE)
-                .putFloat("float_min", Float.MIN_VALUE)
-                .putFloat("float", 100)
-                .putBoolean("boolean_false", false)
-                .putBoolean("boolean_true", true)
-                .putString("string_null", null)// won't be saved in pref. if we pass null it delete the key from pref
-                .putString("string_empty", "")
-                .putString("string", "String")
-                .putStringSet("string_set_null", null)// won't be saved in pref. if we pass null it delete the key from pref
-                .putStringSet("string_set", new HashSet<>(Arrays.asList(new String[]{"set1", "set2", "set3", "set1"})))
-                .apply();
+            .edit()
+            .putLong("long_max", Long.MAX_VALUE)
+            .putLong("long_min", Long.MIN_VALUE)
+            .putLong("long", 100L)
+            .putInt("int_max", Integer.MAX_VALUE)
+            .putInt("int_min", Integer.MIN_VALUE)
+            .putInt("int", 100)
+            .putFloat("float_max", Float.MAX_VALUE)
+            .putFloat("float_min", Float.MIN_VALUE)
+            .putFloat("float", 100)
+            .putBoolean("boolean_false", false)
+            .putBoolean("boolean_true", true)
+            .putString("string_null", null)// won't be saved in pref. if we pass null it delete the key from pref
+            .putString("string_empty", "")
+            .putString("string", "String")
+            .putStringSet("string_set_null", null)// won't be saved in pref. if we pass null it delete the key from pref
+            .putStringSet("string_set", new HashSet<>(Arrays.asList(new String[]{"set1", "set2", "set3", "set1"})))
+            .apply();
     }
 
     public void floodLargeDataSet(SharedPreferences sharedPreferences) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         for (int i = 0; i < 1_000; i++) {
             editor
-                    .putLong("long_max " + i, Long.MAX_VALUE)
-                    .putLong("long_min " + i, Long.MIN_VALUE)
-                    .putLong("long " + i, i * 100L)
-                    .putInt("int_max " + i, Integer.MAX_VALUE)
-                    .putInt("int_min " + i, Integer.MIN_VALUE)
-                    .putInt("int " + i, i)
-                    .putFloat("float_max " + i, Float.MAX_VALUE)
-                    .putFloat("float_min " + i, Float.MIN_VALUE)
-                    .putFloat("float " + i, i * 100.001F)
-                    .putBoolean("boolean_false " + i, false)
-                    .putBoolean("boolean_true " + i, true)
-                    .putBoolean("boolean " + i, i % 2 == 0)
-                    .putString("string_empty " + i, "")
-                    .putString("string " + i, "String" + i)
-                    .putStringSet("string_set " + i, new HashSet<>(Arrays.asList(new String[]{"set" + i, "set" + (i + 1), "set" + (i + 2)})));
+                .putLong("long_max " + i, Long.MAX_VALUE)
+                .putLong("long_min " + i, Long.MIN_VALUE)
+                .putLong("long " + i, i * 100L)
+                .putInt("int_max " + i, Integer.MAX_VALUE)
+                .putInt("int_min " + i, Integer.MIN_VALUE)
+                .putInt("int " + i, i)
+                .putFloat("float_max " + i, Float.MAX_VALUE)
+                .putFloat("float_min " + i, Float.MIN_VALUE)
+                .putFloat("float " + i, i * 100.001F)
+                .putBoolean("boolean_false " + i, false)
+                .putBoolean("boolean_true " + i, true)
+                .putBoolean("boolean " + i, i % 2 == 0)
+                .putString("string_empty " + i, "")
+                .putString("string " + i, "String" + i)
+                .putStringSet("string_set " + i, new HashSet<>(Arrays.asList(new String[]{"set" + i, "set" + (i + 1), "set" + (i + 2)})));
         }
         editor.apply();
     }
 
     public void floodLongNames(SharedPreferences sharedPreferences) {
         sharedPreferences
-                .edit()
-                .putString("Kotlin", getString(R.string.kotlin_android))
-                .putString("The quick brown fox jumps over the lazy dog is an English-language pangram—a sentence that contains all of the letters of the alphabet. It is commonly used for touch-typing practice, testing typewriters and computer keyboards, displaying examples of fonts, and other applications involving text where the use of all letters in the alphabet is desired. Owing to its brevity and coherence, it has become widely known.", "value")
-                .putStringSet("Kotlin_3", new HashSet<>(Arrays.asList(new String[]{1 + getString(R.string.kotlin_android), 2 + getString(R.string.kotlin_android), 3 + getString(R.string.kotlin_android)})))
-                .apply();
+            .edit()
+            .putString("Kotlin", getString(R.string.kotlin_android))
+            .putString("The quick brown fox jumps over the lazy dog is an English-language pangram—a sentence that contains all of the letters of the alphabet. It is commonly used for touch-typing practice, testing typewriters and computer keyboards, displaying examples of fonts, and other applications involving text where the use of all letters in the alphabet is desired. Owing to its brevity and coherence, it has become widely known.", "value")
+            .putStringSet("Kotlin_3", new HashSet<>(Arrays.asList(new String[]{1 + getString(R.string.kotlin_android), 2 + getString(R.string.kotlin_android), 3 + getString(R.string.kotlin_android)})))
+            .apply();
     }
 
     public void floodJsons(SharedPreferences sharedPreferences) {
         sharedPreferences
-                .edit()
-                .putString("user", "{\"id\":1,\"first_name\":\"FN 1\",\"last_name\":\"LN 1\",\"phone_number\":\"9876543211\",\"email\":\"email1@gmail.com\",\"friends\":[{\"id\":2,\"first_name\":\"FN 2\",\"last_name\":\"LN 2\",\"phone_number\":\"9876543212\",\"email\":\"email2@gmail.com\",\"favorite\":false},{\"id\":3,\"first_name\":\"FN 3\",\"last_name\":\"LN 3\",\"phone_number\":\"9876543213\",\"email\":\"email3@gmail.com\",\"favorite\":false}],\"favorite\":false}")
-                .putString("user_friends", "[{\"id\":1,\"first_name\":\"FN 1\",\"last_name\":\"LN 1\",\"phone_number\":\"9876543211\",\"email\":\"email1@gmail.com\",\"favorite\":false},{\"id\":2,\"first_name\":\"FN 2\",\"last_name\":\"LN 2\",\"phone_number\":\"9876543212\",\"email\":\"email2@gmail.com\",\"favorite\":false},{\"id\":3,\"first_name\":\"FN 3\",\"last_name\":\"LN 3\",\"phone_number\":\"9876543213\",\"email\":\"email3@gmail.com\",\"favorite\":false},{\"id\":4,\"first_name\":\"FN 4\",\"last_name\":\"LN 4\",\"phone_number\":\"9876543214\",\"email\":\"email4@gmail.com\",\"favorite\":false},{\"id\":5,\"first_name\":\"FN 5\",\"last_name\":\"LN 5\",\"phone_number\":\"9876543215\",\"email\":\"email5@gmail.com\",\"favorite\":false},{\"id\":6,\"first_name\":\"FN 6\",\"last_name\":\"LN 6\",\"phone_number\":\"9876543216\",\"email\":\"email6@gmail.com\",\"favorite\":false},{\"id\":7,\"first_name\":\"FN 7\",\"last_name\":\"LN 7\",\"phone_number\":\"9876543217\",\"email\":\"email7@gmail.com\",\"favorite\":false},{\"id\":8,\"first_name\":\"FN 8\",\"last_name\":\"LN 8\",\"phone_number\":\"9876543218\",\"email\":\"email8@gmail.com\",\"favorite\":false},{\"id\":9,\"first_name\":\"FN 9\",\"last_name\":\"LN 9\",\"phone_number\":\"9876543219\",\"email\":\"email9@gmail.com\",\"favorite\":false}]")
-                .putString("user_empty", "")
-                .apply();
+            .edit()
+            .putString("user", "{\"id\":1,\"first_name\":\"FN 1\",\"last_name\":\"LN 1\",\"phone_number\":\"9876543211\",\"email\":\"email1@gmail.com\",\"friends\":[{\"id\":2,\"first_name\":\"FN 2\",\"last_name\":\"LN 2\",\"phone_number\":\"9876543212\",\"email\":\"email2@gmail.com\",\"favorite\":false},{\"id\":3,\"first_name\":\"FN 3\",\"last_name\":\"LN 3\",\"phone_number\":\"9876543213\",\"email\":\"email3@gmail.com\",\"favorite\":false}],\"favorite\":false}")
+            .putString("user_friends", "[{\"id\":1,\"first_name\":\"FN 1\",\"last_name\":\"LN 1\",\"phone_number\":\"9876543211\",\"email\":\"email1@gmail.com\",\"favorite\":false},{\"id\":2,\"first_name\":\"FN 2\",\"last_name\":\"LN 2\",\"phone_number\":\"9876543212\",\"email\":\"email2@gmail.com\",\"favorite\":false},{\"id\":3,\"first_name\":\"FN 3\",\"last_name\":\"LN 3\",\"phone_number\":\"9876543213\",\"email\":\"email3@gmail.com\",\"favorite\":false},{\"id\":4,\"first_name\":\"FN 4\",\"last_name\":\"LN 4\",\"phone_number\":\"9876543214\",\"email\":\"email4@gmail.com\",\"favorite\":false},{\"id\":5,\"first_name\":\"FN 5\",\"last_name\":\"LN 5\",\"phone_number\":\"9876543215\",\"email\":\"email5@gmail.com\",\"favorite\":false},{\"id\":6,\"first_name\":\"FN 6\",\"last_name\":\"LN 6\",\"phone_number\":\"9876543216\",\"email\":\"email6@gmail.com\",\"favorite\":false},{\"id\":7,\"first_name\":\"FN 7\",\"last_name\":\"LN 7\",\"phone_number\":\"9876543217\",\"email\":\"email7@gmail.com\",\"favorite\":false},{\"id\":8,\"first_name\":\"FN 8\",\"last_name\":\"LN 8\",\"phone_number\":\"9876543218\",\"email\":\"email8@gmail.com\",\"favorite\":false},{\"id\":9,\"first_name\":\"FN 9\",\"last_name\":\"LN 9\",\"phone_number\":\"9876543219\",\"email\":\"email9@gmail.com\",\"favorite\":false}]")
+            .putString("user_empty", "")
+            .apply();
     }
 }
