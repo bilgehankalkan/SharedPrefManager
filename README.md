@@ -9,8 +9,6 @@
 ## What is this library about?
 SharedPref Manager helps to manage your android Shared Preferences very effectively with ease
 
-**(currently under active development, expect to see new releases almost daily)**
-
 ## Features
 
 * Edit a SharedPreferences Item
@@ -26,14 +24,14 @@ Gradle:
 
 Groovy(`build.gradle`):
 ```groovy
-debugImplementation 'com.github.bilgehankalkan:SharedPrefManager:1.2.2'
-releaseImplementation 'com.github.bilgehankalkan:SharedPrefManager-no-op:1.2.2'
+debugImplementation 'com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager:1.2.2'
+releaseImplementation 'com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager-no-op:1.2.2'
 ```
 
 Kotlin(`build.gradle.kts`)
 ```kotlin
-debugImplementation("com.github.bilgehankalkan:SharedPrefManager:1.2.2")
-releaseImplementation("com.github.bilgehankalkan:SharedPrefManager-no-op:1.2.2")
+debugImplementation("com.github.bilgehankalkan:SharedPrefManager:sharedpref-manager:1.2.2")
+releaseImplementation("com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager-no-op:1.2.2")
 ```
 
 ## Usage
