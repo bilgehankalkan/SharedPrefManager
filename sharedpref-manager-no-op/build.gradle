@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 ext {
     bintrayRepo = 'maven'
@@ -44,6 +45,12 @@ android {
     }
 }
 
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.32"
+}
+
 // Place it at the end of the file
 apply from: 'install_lib.gradle'
 apply from: 'bintray_lib.gradle'
+
+
