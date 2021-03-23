@@ -1,5 +1,4 @@
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SharedPrefManager-green.svg?style=flat )]( https://android-arsenal.com/details/1/7047 )
-
+⚠️ This library is fork from [Ashok-Varma/SharedPrefManager](github.com/Ashok-Varma/SharedPrefManager). Includes AndroidX and Kotlin artifacts.
 
 # SharedPref Manager
 
@@ -21,43 +20,28 @@ SharedPref Manager helps to manage your android Shared Preferences very effectiv
 
 ## Download
 
-Based on your IDE you can import library in one of the following ways
+You can implement library to your module level `build.gradle` file as shown below.
 
 Gradle:
+
+Groovy(`build.gradle`):
 ```groovy
-debugCompile 'com.ashokvarma.android:sharedpref-manager:1.1.0'
-releaseCompile 'com.ashokvarma.android:sharedpref-manager-no-op:1.1.0'
-```
-If you want this in library in production also then try this : 
-```groovy
-compile 'com.ashokvarma.android:sharedpref-manager:1.1.0'
+debugImplementation 'com.github.bilgehankalkan:SharedPrefManager:1.2.2'
+releaseImplementation 'com.github.bilgehankalkan:SharedPrefManager-no-op:1.2.2'
 ```
 
-
-or grab via Maven:
-```xml
-<dependency>
-  <groupId>com.ashokvarma.android</groupId>
-  <artifactId>sharedpref-manager</artifactId>
-  <version>1.1.0</version>
-  <type>pom</type>
-</dependency>
+Kotlin(`build.gradle.kts`)
+```kotlin
+debugImplementation("com.github.bilgehankalkan:SharedPrefManager:1.2.2")
+releaseImplementation("com.github.bilgehankalkan:SharedPrefManager-no-op:1.2.2")
 ```
-
-or Ivy:
-```xml
-<dependency org='com.ashokvarma.android' name='sharedpref-manager' rev='1.1.0'>
-  <artifact name='$AID' ext='pom'></artifact>
-</dependency>
-```
-
-or Download [the latest JAR][mavenAarDownload]
-
 
 ## Usage
 
 All the Shared-Pref Names to be should be sent to SharedPrefManager. It does remaining heavy lifting.
+
 #### Sample Code
+Java:
 ```java
 SharedPrefManager
         .launchSharedPrefManager(
@@ -66,6 +50,14 @@ SharedPrefManager
                 , new ArrayList<>(Arrays.asList(new String[]{"SP_WORLD_READ"}))//All your MODE_WORLD_READABLE Shared Preference Names, Null if None
                 , new ArrayList<>(Arrays.asList(new String[]{"SP_WORLD_WRITE"}))//All your MODE_WORLD_READABLE Shared Preference Names, Null if None
          );
+```
+Kotlin:
+```kotlin
+  
+SharedPrefManager.launchSharedPrefManager(
+    context = this,
+    privateSharedPrefNames = arrayListOf("PREFERENCE_NAME")
+)
 ```
 MODE_WORLD_READABLE, MODE_WORLD_READABLE are not supported by android system in Android N(Nougat) and above devices, If sent those will be ignored in Android N and above devices.
 
@@ -87,11 +79,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
-## Other Open Source Libraries
-1. [Gander](https://github.com/Ashok-Varma/Gander) : Gander is a simple in-app HTTP inspector for Android OkHttp clients. Gander intercepts and persists all HTTP requests and responses inside your application, and provides a UI for inspecting their content.
-2. [SqliteManager](https://github.com/Ashok-Varma/SqliteManager) : Sqlite Manager is a Dev Debug tool that helps to manage(Edit, Add, Clear) your android Sqlite Databases.
-3. [BottomNavigation](https://github.com/Ashok-Varma/BottomNavigation) : This Library helps users to use Bottom Navigation Bar (A new pattern from google) with ease and allows ton of customizations.
-
-[mavenAarDownload]: https://repo1.maven.org/maven2/com/ashokvarma/android/sharedpref-manager/1.1.0/sharedpref-manager-1.1.0.aar
-[googlePlayStoreLink]: https://play.google.com/store/apps/details?id=com.ashokvarma.sharedprefmanager.sample
