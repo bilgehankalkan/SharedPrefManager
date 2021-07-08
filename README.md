@@ -24,14 +24,14 @@ Gradle:
 
 Groovy(`build.gradle`):
 ```groovy
-debugImplementation 'com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager:1.2.2'
-releaseImplementation 'com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager-no-op:1.2.2'
+debugImplementation 'com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager:1.3.0'
+releaseImplementation 'com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager-no-op:1.3.0'
 ```
 
 Kotlin(`build.gradle.kts`)
 ```kotlin
-debugImplementation("com.github.bilgehankalkan:SharedPrefManager:sharedpref-manager:1.2.2")
-releaseImplementation("com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager-no-op:1.2.2")
+debugImplementation("com.github.bilgehankalkan:SharedPrefManager:sharedpref-manager:1.3.0")
+releaseImplementation("com.github.bilgehankalkan.SharedPrefManager:sharedpref-manager-no-op:1.3.0")
 ```
 
 ## Usage

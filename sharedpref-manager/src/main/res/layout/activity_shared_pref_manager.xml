@@ -18,18 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="end" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="end" />
-        </androidx.appcompat.widget.Toolbar>
+            app:menu="@menu/sharedpref_manager_menu"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.appcompat.widget.AppCompatSpinner
@@ -55,8 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:scrollbars="vertical"
-            android:paddingBottom="92dp" />
+            tools:listitem="@layout/sharedpref_manager_recycler_item"
+            android:paddingBottom="92dp"
+            android:scrollbars="vertical" />
 
         <TextView
             android:id="@+id/sharedpref_manager_error_layout"

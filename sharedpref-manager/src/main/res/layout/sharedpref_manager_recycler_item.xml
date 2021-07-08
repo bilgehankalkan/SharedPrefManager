@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
     android:background="?selectableItemBackground"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_title_text"
+        style="@style/sharedpref_manager_mtxt_body3_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="16dp"
+        app:drawableEndCompat="@drawable/sharedpref_arrow_up"
+        tools:text="Shared Pref Key" />
 
     <TextView
         android:id="@+id/item_text"
         style="@style/sharedpref_manager_mtxt_body3_primary"
         android:layout_width="match_parent"
         android:gravity="start"
-        android:padding="16dp"
-        tools:text="Dummy" />
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone"
+        tools:text="Shared Pref Value" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/sharedpref_manager_app_divider_color" />
-
 </LinearLayout>

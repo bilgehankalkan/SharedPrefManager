@@ -1,13 +1,12 @@
 package com.ashokvarma.sharedprefmanager;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
-
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +25,10 @@ class SharedPrefItemModel implements Comparable<SharedPrefItemModel> {
     private final Object mValue;
 
     @NonNull
-    private final SpannableString mDisplayText;
+    private final String mDisplayText;
+
+    @NonNull
+    private final SpannableString mTitle;
 
     SharedPrefItemModel(@NonNull String key, @NonNull Object value, @ColorInt int keyColor) {
         this.mKey = key;
@@ -47,13 +49,13 @@ class SharedPrefItemModel implements Comparable<SharedPrefItemModel> {
             }
         }
 
-        SpannableString textToDisplay = new SpannableString(key + " \n\n " + valueString);
+        SpannableString titleText = new SpannableString(key);
+        titleText.setSpan(new ForegroundColorSpan(keyColor), 0, mKey.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        titleText.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, mKey.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        titleText.setSpan(new RelativeSizeSpan(1.5f), 0, mKey.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        textToDisplay.setSpan(new ForegroundColorSpan(keyColor), 0, mKey.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textToDisplay.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, mKey.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textToDisplay.setSpan(new RelativeSizeSpan(1.5f), 0, mKey.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        mDisplayText = textToDisplay;
+        mDisplayText = valueString;
+        mTitle = titleText;
     }
 
     @NonNull
@@ -67,8 +69,13 @@ class SharedPrefItemModel implements Comparable<SharedPrefItemModel> {
     }
 
     @NonNull
-    SpannableString getDisplayText() {
+    String getDisplayText() {
         return mDisplayText;
+    }
+
+    @NonNull
+    SpannableString getTitleText() {
+        return mTitle;
     }
 
     @Override
