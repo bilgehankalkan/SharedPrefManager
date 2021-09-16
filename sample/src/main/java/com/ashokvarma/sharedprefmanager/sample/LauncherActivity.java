@@ -89,8 +89,8 @@ public class LauncherActivity extends AppCompatActivity {
                     .launchSharedPrefManager(
                         LauncherActivity.this
                         , new ArrayList<>(Arrays.asList(new String[]{SP_PRI_APP, SP_PRI_USER_JSON, SP_PRI_LONG_DATA, SP_PRI_15_000_ENTRY, SP_PRI_NO_DATA}))
-                        , null
-                        , null
+                        , new ArrayList<String>()
+                        , new ArrayList<String>()
                     );
             }
         });
